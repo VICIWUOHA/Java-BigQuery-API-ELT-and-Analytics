@@ -7,7 +7,5 @@ public class Main {
         String rawFilePath = DataTransformer.getAndLoadData("https://fakestoreapi.com/products",runTime);
         String transformedFilePath = DataTransformer.transformData(rawFilePath,runTime);
         DataTransformer.loadCsvToBigQuery("sales", "Products", transformedFilePath);
-
-        System.out.println("Hello world!");
     }
 }
