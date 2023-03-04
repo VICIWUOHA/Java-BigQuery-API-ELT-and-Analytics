@@ -23,18 +23,31 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * DataTransformer Class used in ELT to BigQuery
+ * @author Victor Iwuoha.
+ *
+ */
 public class DataTransformer {
 
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public static String getRuntime() {
+
+    private static String getRuntime() {
         // Used to get Runtime Info when Class is instantiated
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
         Date date = new Date();
         return formatter.format(date);
     }
 
-    public static String getAndLoadData(String apiEndpoint, String runTimeInfo) {
+    private static final String runTimeInfo = getRuntime();
+
+    /**
+     * Makes Call to an  API to retrieve data and stores to filepath.
+     * @param apiEndpoint API Endpoint to call for Json Data.
+     * @return filepath to Json Data.
+     */
+    public String getAndLoadData(String apiEndpoint) {
         HttpClient client = HttpClient.newHttpClient();
         JsonArray jsonResponseArray;
         try {
@@ -64,7 +77,13 @@ public class DataTransformer {
         return fileName;
     }
 
-    public static String transformData(String filePath, String runTimeInfo) throws IOException {
+    /**
+     * Transforms Data in a Json File to tabular format and writes to Csv
+     * @param filePath path to Json File.
+     * @return filename/path of csv file
+     * @throws IOException if i/o operations fail.
+     */
+    public String transformData(String filePath) throws IOException {
 
         // Transforms data to json array and then to csv.
         JsonArray fileJsonArray;
@@ -100,9 +119,15 @@ public class DataTransformer {
         return fileName;
     }
 
-    public static void loadCsvToBigQuery(String datasetName, String tableName, String sourceUri) throws InterruptedException {
+    /**
+     * Loads csv data to BigQuery
+     * @param datasetName name of existing Bigquery Dataset.
+     * @param tableName Name of the Table to load data to (creates or appends to this table).
+     * @param sourceUri Uri to csv file on local storage or on GCS/S3.
+     */
+    public void loadCsvToBigQuery(String datasetName, String tableName, String sourceUri) throws InterruptedException {
 
-        // Initialize client that will be used to send requests. This client only needs to be created
+        // Initialize client that will be used to send requests to BigQuery. This client only needs to be created
         // once, and can be reused for multiple requests.
         BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
         String location = "US";
@@ -138,4 +163,7 @@ public class DataTransformer {
         }
     }
 
+    public DataTransformer() {
+
+    }
 }
