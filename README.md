@@ -167,7 +167,8 @@ to perform a quick visual Exploratory Data Analysis (EDA) on the dataset we inge
 [**Looker Studio**](https://lookerstudio.google.com/overview) is a blend of a data platform formerly known as 
 Looker and Google Data Studio after [**Google acquired it**](https://techcrunch.com/2020/02/13/google-closes-2-6b-looker-acquisition/) in 2019. 
 It is useful for **Data Analysts** and **Business Intelligence developers** in creating **dashboards that give business insights and aid reporting** too. 
-The dashboard below was created using **Looker Studio**. Feel free to create your own custom dashboard.
+
+_The dashboard below was created using **Looker Studio**. Feel free to create your own custom dashboard._
 
 ![Looker Studio Dashboard](images/Looker_Studio_Dashboard.png)
 
