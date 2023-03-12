@@ -197,6 +197,6 @@ solutions on GCP using the [**Java SDK**](https://cloud.google.com/java/docs/ref
 However, you would mostly Find Python as a more flexible and more popular option 
 for Data Engineering workloads. 
 - It is also notable that most cloud platforms such as **Azure, GCP and AWS** have SDK's in multiple programming languages built for
-interacting with their services.
+interacting with their services hence, there are many other ways to execute this project.
 
 If you enjoyed :relaxed: this Project or have any comments/ questions, Let's connect on LinkedIn [@viciwuoha](https://linkedin.com/in/VICIWUOHA)
