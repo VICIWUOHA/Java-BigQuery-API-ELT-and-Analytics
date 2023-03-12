@@ -10,7 +10,7 @@ using Java. As an End-to-End Analytics Pipeline, we would also **Visualize** our
 ### Project Workflow
 ![JAVA_ELT_TO_BIGQUERY_Workflow_by-Victor-Iwuoha](images/JAVA_ELT_TO_BIGQUERY_by-Victor-Iwuoha.png)
 
-### Prerequisites
+### Prerequisites :pencil:
 Before we begin, ensure that you have the following:
 
 - A Google Cloud Platform account with billing enabled or the BigQuery **SandBox**
@@ -21,7 +21,7 @@ Before we begin, ensure that you have the following:
 - Any IDE of Your Choice (Eg; Intellij IDEA)
 - A clone of this repository or a Java Project
 
-### Requirements/ Environment Setup
+### Requirements/ Environment Setup :pencil:
 
 1. Dependencies: The class uses the following dependencies:
 
