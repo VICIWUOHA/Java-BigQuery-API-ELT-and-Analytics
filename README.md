@@ -192,7 +192,7 @@ customer service or delivery for Jewelries.
 - **Storage Application Backend Service :**
   If you build a SaaS platform for Data Storage that uses GCS/BigQuery as a backend abstracted from your end-users
   You can use this logic in your script.
-- ETL/ELT for Java Developers. If your engineering team is already conversant with Java, they can build some good Data Engineering
+- **ETL/ELT for Java Developers**. If your engineering team is already conversant with Java, they can build some good Data Engineering
 solutions on GCP using the [**Java SDK**](https://cloud.google.com/java/docs/reference). 
 However, you would mostly Find Python as a more flexible and more popular option 
 for Data Engineering workloads. 
