@@ -3,8 +3,9 @@
 
 
 ### Introduction
-In this tutorial, you will learn how to perform Extract, Transform and Load (ETL) operations to Google BigQuery using Java. 
-We will be extracting data from an API endpoint in JSON format, transforming the data to tabular format, and finally loading the transformed data to BigQuery.
+In this tutorial, you will learn how to perform **Extract, Transform** and **Load** (ETL) operations to Google BigQuery using Java. 
+We will be extracting data from an API endpoint in JSON format, transforming the data to tabular format, and finally loading the transformed data to BigQuery,
+using Java. As an End-to-End Analytics Pipeline, we would also **Visualize** our Data in Looker Studio.
 
 ### Project Workflow
 ![JAVA_ELT_TO_BIGQUERY_Workflow_by-Victor-Iwuoha](images/JAVA_ELT_TO_BIGQUERY_by-Victor-Iwuoha.png)
@@ -51,13 +52,15 @@ Before we begin, ensure that you have the following:
 
 2. Add an ENVIRONMENT variable named GOOGLE_APPLICATION_CREDENTIALS pointing to the path of your earlier downloaded service account keys.
 In Intellij simply go to Run/Edit Configurations and add this.
+
 3. Create a folder named **xtracts/** within your project. This is where our data would be staged at the bronze and
    silver level of transformation. You can also use the GCS SDK to write these datasets to a GCS Bucket.
-   Note that At a higher level, you can create a cloud Function on GCP that gets triggered to run the DataTransformer Class
-   when the bucket is updated with a JSON/CSV file with the filename returned from this event 
+   
+**Note :** _At a higher level, you can create a [**Cloud Function**](https://cloud.google.com/functions) on GCP that gets triggered to run the **Main Class** of this project
+   when the bucket is updated with a JSON/CSV file and have the filename/object path returned from this event 
    as an input argument for the DataTransformer.transformAndLoad method. 
 See [How to get path to uploaded GCS file](https://stackoverflow.com/questions/57885334/how-to-check-which-path-the-file-landed-in-cloud-storage-folders-using-cloud-fun)
-for more info.
+for more info._
 
 ### Steps
 The Workings of this DataTransformer class are synonymous with Steps 1 - 6 of the workflow diagram above.
@@ -67,11 +70,11 @@ The Workings of this DataTransformer class are synonymous with Steps 1 - 6 of th
 - Transform the data to tabular format and store in a CSV file.
 - Load the data from the CSV file to a BigQuery table.
 
-The steps above are handled by the three public methods of the DataTransformer Class.
+The steps above are handled by the three public methods of the [**DataTransformer**](src/DataTransformer.java) Class.
 
 #### Step 1 : Extract Data from a REST API and Load to File Storage
 
-**getRuntime:** is a private helper method that returns the current date and time as a string which is later appended to the file name.
+- **getRuntime:** is a private helper method that returns the current date and time as a string which is later appended to file names.
 ````
 private static String getRuntime() {
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
@@ -80,7 +83,7 @@ private static String getRuntime() {
     }
 ````
 
-**_getAndLoadData(String apiEndpoint)_ :** This method **extracts** data from an API endpoint and stores it in a JSON file.
+- **_getAndLoadData(String apiEndpoint)_ :** This method **extracts** data from an API endpoint and stores it in a JSON file.
 it takes in the API endpoint URL as a parameter. This method uses the `HttpClient` class to send an
 HTTP request to the API endpoint and receives the response in JSON format. 
 The response is then saved to a file using the `FileWriter` class.
@@ -89,7 +92,7 @@ In this case, an open-source API called [Fake Store API](https://fakestoreapi.co
 
 #### Step 2: Transform Data
 
-**_transformData(String filePath)_ :**
+- **_transformData(String filePath)_ :**
 This method transforms your JSON file's data into a tabular structure for a CSV file.
 The data in the JSON file is read into a buffer using a `Reader` and then converted to a jsonArray using the `gson.fromJson()`
 Data from this Array is iterated over, transformed and written into an ArrayList. This arraylist is then written
@@ -103,19 +106,20 @@ _This can be modified to be more dynamic instead of a hard-coded ArrayList to st
 
 
 #### Step 3 : Load Data To BigQuery
-Of Course in data workloads a Data Warehouse is mostly the final landing zone for transformed data
-which would be used in downstream analytics/ business intelligence / data applications.
+In data analytics & engineering workloads, a [**Data Warehouse**](https://en.wikipedia.org/wiki/Data_warehouse) 
+is mostly the final landing zone for transformed data which would be used in downstream analytics/ business intelligence / data applications.
 Data warehouses like [**Google Bigquery**](https://cloud.google.com/bigquery) are highly efficient and scalable for this purpose.
 
-_**loadCsvToBigQuery(String datasetName, String tableName, String sourceUri)**_: 
+- _**loadCsvToBigQuery(String datasetName, String tableName, String sourceUri)**_: 
 This method loads the data from a sourceUri (which is the URI to the CSV file on local storage or on GCS/S3.)
 to a BigQuery table within a specified dataset in the project which
 exists on bigquery. The BigQuery class from the `com.google.cloud.bigquery.*` library is 
 used to interact with the BigQuery API by creating a `TableDataWriteChannel` to write data to BigQuery. 
 
-**Note:** The table will be created if it does not already exist or appended to if it does. The Schema of
+**Note:** 
+_The table will be created if it does not already exist or data would be appended to if it does. The Schema of
 the csv file is also [**automatically inferred**](https://cloud.google.com/bigquery/docs/schema-detect),
-but you can [**define a specific schema**](https://cloud.google.com/bigquery/docs/schemas).
+but you can [**define a specific schema**](https://cloud.google.com/bigquery/docs/schemas)._
 
 
 #### Step 4 : Execution and Validation
