@@ -13,10 +13,11 @@ using Java. As an End-to-End Analytics Pipeline, we would also **Visualize** our
 ### Prerequisites
 Before we begin, ensure that you have the following:
 
-- A Google Cloud Platform account with billing enabled or the BigQuery SandBox.
-- A project created on the Google Cloud Console and the appropriate APIs enabled.
-- A Service Account with access to the BigQuery API (download the Json File Key)
-- Java 19 installed on your computer.
+- A Google Cloud Platform account with billing enabled or the BigQuery **SandBox**
+- A project created on the Google Cloud Console and the appropriate APIs enabled
+- [A Service Account with access to the BigQuery API ](https://cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries)
+( Also, download the Json File Key)
+- Java 19 installed on your computer
 - Any IDE of Your Choice (Eg; Intellij IDEA)
 - A clone of this repository or a Java Project
 
@@ -62,17 +63,18 @@ In Intellij simply go to Run/Edit Configurations and add this.
 See [How to get path to uploaded GCS file](https://stackoverflow.com/questions/57885334/how-to-check-which-path-the-file-landed-in-cloud-storage-folders-using-cloud-fun)
 for more info._
 
-### Steps
+### **Steps**
 The Workings of this DataTransformer class are synonymous with Steps 1 - 6 of the workflow diagram above.
 
-- Extract data in JSON format from an API endpoint.
-- Store the data in a JSON file.
-- Transform the data to tabular format and store in a CSV file.
-- Load the data from the CSV file to a BigQuery table.
+- Extract data in JSON format from an API endpoint
+- Store the data in a JSON file
+- Transform the data to tabular format and store in a CSV file
+- Load the data from the CSV file to a BigQuery table
 
 The steps above are handled by the three public methods of the [**DataTransformer**](src/DataTransformer.java) Class.
+Let us discuss these methods in detail.
 
-#### Step 1 : Extract Data from a REST API and Load to File Storage
+#### **Step 1 : Extract Data from a REST API and Load to File Storage**
 
 - **getRuntime:** is a private helper method that returns the current date and time as a string which is later appended to file names.
 ````
@@ -90,7 +92,7 @@ The response is then saved to a file using the `FileWriter` class.
 In this case, an open-source API called [Fake Store API](https://fakestoreapi.com/products) is used.
 
 
-#### Step 2: Transform Data
+#### **Step 2: Transform Data**
 
 - **_transformData(String filePath)_ :**
 This method transforms your JSON file's data into a tabular structure for a CSV file.
@@ -105,7 +107,7 @@ depending on your implementation._
 _This can be modified to be more dynamic instead of a hard-coded ArrayList to store data_.
 
 
-#### Step 3 : Load Data To BigQuery
+#### **Step 3 : Load Data To BigQuery**
 In data analytics & engineering workloads, a [**Data Warehouse**](https://en.wikipedia.org/wiki/Data_warehouse) 
 is mostly the final landing zone for transformed data which would be used in downstream analytics/ business intelligence / data applications.
 Data warehouses like [**Google Bigquery**](https://cloud.google.com/bigquery) are highly efficient and scalable for this purpose.
@@ -122,7 +124,7 @@ the csv file is also [**automatically inferred**](https://cloud.google.com/bigqu
 but you can [**define a specific schema**](https://cloud.google.com/bigquery/docs/schemas)._
 
 
-#### Step 4 : Execution and Validation
+#### **Step 4 : Execution and Validation**
 
 Now that You understand the Working of our DataTransformer Class , you can now Instantiate it and call its methods
 from within your **Main.java** file as follows;
@@ -173,7 +175,7 @@ The dashboard below was created using **Looker Studio**. Feel free to create you
   to relevant stakeholders. As one who has worked as a data analyst, this comes in handy for various needs of management
   and stakeholders that are data related.
 
-**Basic Insights from Dashboard :** 
+### **Basic Insights from Dashboard ** 
 
 - It is evident that out of the top 10 highest rated products, 40% are Electronics,
 40 % are Women's Clothing and the remaining 20% are Men's clothing .
@@ -184,7 +186,7 @@ categories.
 Jewelries are not as frequently purchased as clothing this business may need to review their quality, packaging,
 customer service or delivery for Jewelries.
 
-#### Applications of This Java Class
+### **Applications of This Java Class**
 
 - **Storage Application Backend Service :**
   If you build a SaaS platform for Data Storage that uses GCS/BigQuery as a backend abstracted from your end-users
