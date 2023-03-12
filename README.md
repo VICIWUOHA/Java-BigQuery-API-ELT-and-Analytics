@@ -1,5 +1,5 @@
-## USING JAVA SDK TO PERFORM ELT TO BIGQUERY (with Visualization on Looker.)
-**_Author:_ _Victor Iwuoha (Data Engineer)_**
+## USING JAVA SDK FOR SEAMLESS ELT TO BIGQUERY AND VISUALIZATION ON LOOKER
+**_Author:_ _Victor Iwuoha (Data Engineering & Analytics Professional)_**
 
 
 ### Introduction
