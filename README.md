@@ -175,7 +175,7 @@ The dashboard below was created using **Looker Studio**. Feel free to create you
   to relevant stakeholders. As one who has worked as a data analyst, this comes in handy for various needs of management
   and stakeholders that are data related.
 
-### **Basic Insights from Dashboard ** 
+### **Basic Insights from Dashboard** 
 
 - It is evident that out of the top 10 highest rated products, 40% are Electronics,
 40 % are Women's Clothing and the remaining 20% are Men's clothing .
