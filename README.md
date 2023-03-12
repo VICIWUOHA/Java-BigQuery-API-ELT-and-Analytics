@@ -51,10 +51,10 @@ Before we begin, ensure that you have the following:
 </dependencies>
 ````
 
-2. Add an ENVIRONMENT variable named GOOGLE_APPLICATION_CREDENTIALS pointing to the path of your earlier downloaded service account keys.
+2. **Add an ENVIRONMENT variable** named `GOOGLE_APPLICATION_CREDENTIALS` pointing to the path of your earlier downloaded service account keys.
 In Intellij simply go to Run/Edit Configurations and add this.
 
-3. Create a folder named **xtracts/** within your project. This is where our data would be staged at the bronze and
+3. **Create a folder** named **xtracts/** within your project. This is where our data would be staged at the bronze and
    silver level of transformation. You can also use the GCS SDK to write these datasets to a GCS Bucket.
    
 **Note :** _At a higher level, you can create a [**Cloud Function**](https://cloud.google.com/functions) on GCP that gets triggered to run the **Main Class** of this project
