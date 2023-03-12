@@ -187,7 +187,7 @@ categories.
 Jewelries are not as frequently purchased as clothing this business may need to review their quality, packaging,
 customer service or delivery for Jewelries.
 
-### **Applications of This Java Class**
+### **Applications of This Java Class** :computer:
 
 - **Storage Application Backend Service :**
   If you build a SaaS platform for Data Storage that uses GCS/BigQuery as a backend abstracted from your end-users
