@@ -74,7 +74,7 @@ The Workings of this DataTransformer class are synonymous with Steps 1 - 6 of th
 The steps above are handled by the three public methods of the [**DataTransformer**](src/DataTransformer.java) Class.
 Let us discuss these methods in detail.
 
-### **Step 1 : Extract Data from a REST API and Load to File Storage**
+### **Step 1 : Extract Data from a REST API and Load to File Storage** :hourglass:
 
 - **getRuntime:** is a private helper method that returns the current date and time as a string which is later appended to file names.
 ````
@@ -92,7 +92,7 @@ The response is then saved to a file using the `FileWriter` class.
 In this case, an open-source API called [Fake Store API](https://fakestoreapi.com/products) is used.
 
 
-### **Step 2: Transform Data**
+### **Step 2: Transform Data** :hammer:
 
 - **_transformData(String filePath)_ :**
 This method transforms your JSON file's data into a tabular structure for a CSV file.
@@ -107,7 +107,7 @@ depending on your implementation._
 _This can be modified to be more dynamic instead of a hard-coded ArrayList to store data_.
 
 
-### **Step 3 : Load Data To BigQuery**
+### **Step 3 : Load Data To BigQuery** :department_store:
 In data analytics & engineering workloads, a [**Data Warehouse**](https://en.wikipedia.org/wiki/Data_warehouse) 
 is mostly the final landing zone for transformed data which would be used in downstream analytics/ business intelligence / data applications.
 Data warehouses like [**Google Bigquery**](https://cloud.google.com/bigquery) are highly efficient and scalable for this purpose.
@@ -149,7 +149,7 @@ Going to the Bigquery UI you should be able to see your Table Created as follows
 
 ![Bigquery Table Schema Image](images/Bigquery_Table_Data.png)
 
-#### Bonus Step : Data Analytics and Visualization
+#### Bonus Step : Data Analytics and Visualization :bar_chart:
 
 If You are Familiar with SQL , then running the following SQL query on the Bigquery UI would show you the ingested data.
 
@@ -176,7 +176,7 @@ _The dashboard below was created using **Looker Studio**. Feel free to create yo
   to relevant stakeholders. As one who has worked as a data analyst, this comes in handy for various needs of management
   and stakeholders that are data related.
 
-### **Basic Insights from Dashboard** 
+### **Basic Insights from Dashboard** :bulb:
 
 - It is evident that out of the top 10 highest rated products, 40% are Electronics,
 40 % are Women's Clothing and the remaining 20% are Men's clothing .
