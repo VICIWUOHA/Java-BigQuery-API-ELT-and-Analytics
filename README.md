@@ -124,7 +124,7 @@ the csv file is also [**automatically inferred**](https://cloud.google.com/bigqu
 but you can [**define a specific schema**](https://cloud.google.com/bigquery/docs/schemas)._
 
 
-### **Step 4 : Execution and Validation**
+### **Step 4 : Execution and Validation** :rocket:
 
 Now that You understand the Workings of our DataTransformer Class , you can now Instantiate it and call its methods
 from within your [**Main.java**](src/Main.java) file as follows;
@@ -149,7 +149,7 @@ Going to the Bigquery UI you should be able to see your Table Created as follows
 
 ![Bigquery Table Schema Image](images/Bigquery_Table_Data.png)
 
-#### Bonus Step : Data Analytics and Visualization :bar_chart:
+### Bonus Step : Data Analytics and Visualization :bar_chart:
 
 If You are Familiar with SQL , then running the following SQL query on the Bigquery UI would show you the ingested data.
 
