@@ -59,7 +59,7 @@ In Intellij simply go to Run/Edit Configurations and add this.
    
 **Note :** _At a higher level, you can create a [**Cloud Function**](https://cloud.google.com/functions) on GCP that gets triggered to run the **Main Class** of this project
    when the bucket is updated with a JSON/CSV file and have the filename/object path returned from this event 
-   as an input argument for the `DataTransformer.transformAndLoad` method. 
+   as an input argument for the `DataTransformer.transformData` method. 
 See [How to get path to uploaded GCS file](https://stackoverflow.com/questions/57885334/how-to-check-which-path-the-file-landed-in-cloud-storage-folders-using-cloud-fun)
 for more info._
 
