@@ -141,7 +141,7 @@ public class Main {
 }
 ````
 
-If the above runs successfully, you should an output similar to the following in your terminal.
+If the above runs successfully, you should have an output similar to the following in your terminal.
 
 ![ Build Run Output Image](images/Run_Output.png)
 
@@ -199,4 +199,4 @@ for Data Engineering workloads.
 - It is also notable that most cloud platforms such as **Azure, GCP and AWS** have SDK's in multiple programming languages built for
 interacting with their services.
 
-If you enjoyed this Project or have any comments/ questions, Let's connect on Linkedin [@viciwuoha](https://linkedin.com/in/VICIWUOHA)
+If you enjoyed :relaxed: this Project or have any comments/ questions, Let's connect on LinkedIn [@viciwuoha](https://linkedin.com/in/VICIWUOHA)
