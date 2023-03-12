@@ -126,7 +126,7 @@ but you can [**define a specific schema**](https://cloud.google.com/bigquery/doc
 
 ### **Step 4 : Execution and Validation**
 
-Now that You understand the Working of our DataTransformer Class , you can now Instantiate it and call its methods
+Now that You understand the Workings of our DataTransformer Class , you can now Instantiate it and call its methods
 from within your [**Main.java**](src/Main.java) file as follows;
 
 ````
