@@ -10,7 +10,7 @@ using Java. As an End-to-End Analytics Pipeline, we would also **Visualize** our
 ### Project Workflow
 ![JAVA_ELT_TO_BIGQUERY_Workflow_by-Victor-Iwuoha](images/JAVA_ELT_TO_BIGQUERY_by-Victor-Iwuoha.png)
 
-### Prerequisites :pencil:
+### Prerequisites :wrench:
 Before we begin, ensure that you have the following:
 
 - A Google Cloud Platform account with billing enabled or the BigQuery **SandBox**
@@ -63,7 +63,7 @@ In Intellij simply go to Run/Edit Configurations and add this.
 See [How to get path to uploaded GCS file](https://stackoverflow.com/questions/57885334/how-to-check-which-path-the-file-landed-in-cloud-storage-folders-using-cloud-fun)
 for more info._
 
-### **Steps**
+### **Steps** :nut_and_bolt:
 The Workings of this DataTransformer class are synonymous with Steps 1 - 6 of the workflow diagram above.
 
 - Extract data in JSON format from an API endpoint
